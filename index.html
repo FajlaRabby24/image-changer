@@ -28,10 +28,35 @@
             }
         }
     </script>
-    <title>Dev Board</title>
+    <title>Image Changer</title>
 </head>
 
-<body class="bg-[#f4f7ff] font-poppins py-5">
+<body class="bg-[#f4f7ff] font-poppins py-5 flex items-center justify-center h-screen">
+    <div class="text-center">
+        <div class="mb-6 w-80 h-44">
+            <img class="w-full h-full" src="./images/img1.png" id="image" alt="">
+        </div>
+        <button class="btn btn-primary" id="btn-img-change">Click to Image Changer</button>
+    </div>
 
+
+    <script>
+        const imgChangerBtn = document.getElementById('btn-img-change');
+        const image = document.getElementById('image');
+        let index = 1;
+        function imgChangerIndex(){
+            if(index < 9){
+                index++;
+            }
+            else{
+                index = 1;
+            }
+        }
+        imgChangerBtn.addEventListener('click', (event) => {
+            imgChangerIndex();
+            image.src = `./images/img${index}.png`;
+        })
+    </script>
 </body>
+
 </html>
